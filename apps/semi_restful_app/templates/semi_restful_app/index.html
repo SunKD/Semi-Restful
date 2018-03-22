@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> 
+    <title>User Index</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Users</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in users %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.first_name}} {{item.last_name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.created_at}}</td>
+                    <td>
+                        <a href="/show/{{item.id}}">Show</a>
+                        <a href="/edit/{{item.id}}">Edit</a>
+                        <a href="/delete/{{item.id}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="new">Add New User</a>
+    </div>
+</body>
+
+</html>
